@@ -105,7 +105,7 @@ app.use("/api/bot-flows", botFlowRoutes);
 
 app.use("/api/templates", templateRoutes);
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/build", "index.html"));
 });
 
