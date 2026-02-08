@@ -36,10 +36,11 @@ const httpServer = http.createServer(app);
 // CORS Configuration
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://echox7.com",       // [NEW] Add your actual domain
-  "https://www.echox7.com",   // [NEW] Add www version
-  process.env.CLIENT_URL,         // [NEW] Allow env variable control
-];
+  "https://echox7.com",
+  "https://www.echox7.com",
+  process.env.CLIENT_URL,
+].filter(Boolean); // Remove undefined values
+
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps or curl requests)
@@ -56,7 +57,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Initialize Socket.IO using the manager
-const io = socketManager.init(httpServer, { origin: allowedOrigins });
+const io = socketManager.init(httpServer, {
+  origin: allowedOrigins,
+  methods: ["GET", "POST"],
+  credentials: true
+});
 
 io.on("connection", (socket) => {
   console.log("🔌 A user connected:", socket.id);
@@ -100,7 +105,7 @@ app.use("/api/bot-flows", botFlowRoutes);
 
 app.use("/api/templates", templateRoutes);
 
-app.get("*splat", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/build", "index.html"));
 });
 

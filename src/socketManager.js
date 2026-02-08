@@ -4,11 +4,15 @@ const { Server } = require('socket.io');
 
 let io;
 
-const init = (httpServer, corsOptions) => {
+const init = (httpServer, options = {}) => {
   io = new Server(httpServer, {
-    cors: corsOptions
+    cors: {
+      origin: options.origin,
+      methods: options.methods || ["GET", "POST"],
+      credentials: options.credentials || true
+    }
   });
-  console.log('Socket.IO initialized');
+  console.log('Socket.IO initialized with CORS origins:', options.origin);
   return io;
 };
 
