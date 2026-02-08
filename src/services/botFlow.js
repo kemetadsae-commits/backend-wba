@@ -1,11 +1,11 @@
 // backend/src/services/botFlow.js
- 
+
 const botFlow = {
   // This is the default state for any new enquiry
   START: {
     type: 'buttons',
     text: [
-      'Hello and welcome to Capital Avenue! It’s a pleasure to connect with you.',
+      'Hello and welcome! It’s a pleasure to connect with you.',
       'How can we help you today?',
     ].join('\n'),
     buttons: [
@@ -29,7 +29,7 @@ const botFlow = {
       },
     ],
   },
- 
+
   // This is the flow for a new lead from a website
   website_enquiry_start: {
     type: 'text',
@@ -79,14 +79,14 @@ const botFlow = {
     type: 'buttons',
     text: [
       'You can either:',
-      'Visit our website: www.thecapitalavenue.com',
+      'Visit our website: www.example.com',
       'Or contact our customer happiness center: 800 12345',
     ].join('\n'),
     buttons: [
       { id: 'goto_main_menu', title: 'Main Menu' },
     ],
   },
-  
+
   // This is a placeholder for the "View Properties" flow
   flow_properties: {
     type: 'buttons',

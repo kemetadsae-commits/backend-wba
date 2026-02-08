@@ -438,7 +438,7 @@ WhatsApp`;
 
           await contact.save();
           autoReplyText =
-            "Hello and welcome back to Capital Avenue! How can we help you";
+            "Hello and welcome back! How can we help you";
           console.log(`✅ Contact ${userPhone} has been re-subscribed.`);
         }
 

@@ -75,8 +75,8 @@ const checkAndSendFollowUps = async () => {
           if (
             freshEnquiry.lastStuckFollowUpSentAt &&
             Date.now() -
-              new Date(freshEnquiry.lastStuckFollowUpSentAt).getTime() <
-              24 * 60 * 60 * 1000
+            new Date(freshEnquiry.lastStuckFollowUpSentAt).getTime() <
+            24 * 60 * 60 * 1000
           ) {
             console.log(
               `⚠️ Skipping ${enquiry.phoneNumber} - already sent recently.`,
@@ -251,7 +251,7 @@ const checkAndSendFollowUps = async () => {
 
           // Send List Message for 1-5 Stars (English Only - Premium Experience)
           const listBody =
-            "How would you rate your experience with your Capital Avenue assistant today?";
+            "How would you rate your experience with your assistant today?";
           const sections = [
             {
               title: "Your Experience",

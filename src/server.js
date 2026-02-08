@@ -36,8 +36,9 @@ const httpServer = http.createServer(app);
 // CORS Configuration
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://whatsapp-campaign-manager-frontend.vercel.app",
-  "https://whatsapp-campaign-manager-frontend-fhmhx0aob.vercel.app",
+  "https://yourdomain.com",       // [NEW] Add your actual domain
+  "https://www.yourdomain.com",   // [NEW] Add www version
+  process.env.CLIENT_URL,         // [NEW] Allow env variable control
 ];
 const corsOptions = {
   origin: (origin, callback) => {
