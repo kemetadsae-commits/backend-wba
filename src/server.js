@@ -36,8 +36,8 @@ const httpServer = http.createServer(app);
 // CORS Configuration
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://yourdomain.com",       // [NEW] Add your actual domain
-  "https://www.yourdomain.com",   // [NEW] Add www version
+  "https://echox7.com",       // [NEW] Add your actual domain
+  "https://www.echox7.com",   // [NEW] Add www version
   process.env.CLIENT_URL,         // [NEW] Allow env variable control
 ];
 const corsOptions = {
