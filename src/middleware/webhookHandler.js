@@ -444,9 +444,9 @@ WhatsApp`;
 
         // 3. Handle normal keyword logic
         if (!autoReplyText && isCampaignReply) {
-          if (messageBodyLower.includes("yes, i am interested")) {
+          if (messageBodyLower.includes("i am interested")) {
             autoReplyText =
-              "Your interest has been noted. One of our Sales Consultant will contact you shortly to assist you, Thank you for your response.";
+              "One of our Sales Consultant will contact you shortly to assist you with your interest";
 
             // --- FIX: Close Enquiry Immediately ---
             const finalName =
@@ -467,9 +467,9 @@ WhatsApp`;
             console.log(
               `✅ Campaign Interest Logged & Handover Triggered for ${userPhone}`,
             );
-          } else if (messageBodyLower.includes("نعم، مهتم")) {
+          } else if (messageBodyLower.includes("مهتم")) {
             autoReplyText =
-              "لقد تم تسجيل اهتمامكم. سيتصل بكم أحد مستشاري المبيعات لدينا قريباً لمساعدتكم، شكراً لردكم.";
+              "سيتصل بك أحد مستشاري المبيعات لدينا قريبًا لمساعدتك في تلبية اهتمامك";
 
             // --- FIX: Close Enquiry Immediately (Arabic) ---
             const finalName =
